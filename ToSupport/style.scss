@@ -1,0 +1,511 @@
+@font-face {
+    font-family: Organetto;
+    src: local("Organetto"), url("../сайт/fonts/Fontspring-DEMO-organetto-bold.otf") format("opentype");
+    font-style: normal;
+    font-weight: bold;
+}
+
+@mixin text($size, $weight, $color, $font-style) {
+    font-size: $size;
+    font-weight: $weight;
+    color: $color;
+    font-family: $font-style, Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    width: 100%;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+.wrapper {
+    overflow: hidden;
+}
+
+.header {
+    background-color: rgba(36, 37, 44, 1);
+    nav {
+        width: 100%;
+        position: fixed;
+        background-color: rgba(36, 37, 44, 1);
+        margin-top: 80px;
+        ul {
+            padding-left: 60px;
+            padding-right: 20px;
+            li {
+                list-style-type: none;
+                @include text(18px, 500, white, 'Manrope');
+                margin-bottom: 35px;
+            }
+        }
+    }
+    nav.main-menu {
+        height: 100%;
+    }
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    padding: 10px 0;
+    z-index: 2;
+    background-color: rgba(36, 37, 44, 1);
+    .logo {
+        margin-left: 60px;
+        z-index: inherit;
+        div {
+            display: inline-flex;
+            background-image: url(img/Vector.png);
+            background-size: cover;
+            @include text(30px, bold, white, 'Organetto');
+            padding: 10px;
+        }
+        span {
+            @include text(30px, 700, rgba(237, 28, 36, 1), 'Organetto');
+        }
+    }
+    .call {
+        display: flex;
+        flex-wrap: nowrap;
+        div {
+            display: flex;
+            align-items: center;
+            margin-right: 60px;
+            @include text(18px, 700, white, 'Manrope');
+            img {
+                padding: 10px;
+            }
+        }
+        button {
+            padding: 15px 25px;
+            background-color: rgba(237, 28, 36, 1);
+            @include text(18px, 700, white, 'Manrope');
+            border: 0;
+            border-radius: 10px;
+            &:hover {
+                background-color: rgba(237, 28, 36, 0.5);
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.menu-btn {
+    margin-right: 10px;
+	padding: 10px;
+	position: relative;
+	z-index:2;
+	overflow: hidden;
+    span {
+        width: 30px;
+        height: 2px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #222222;
+        transition: all 0.5s;
+        background-color: white;
+    }
+    span:nth-of-type(1) {
+        top: calc(50% - 5px);
+    }
+    span:nth-of-type(3) {
+        top: calc(50% + 5px);
+    }
+    
+}
+
+.menu {
+	position: fixed;
+    padding-top: 40px;
+    z-index: 1;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+  background:rgba(36, 37, 44, 1);
+	transform: translateY(-100%);
+	transition: transform 0.5s; 
+}
+.menu.active {
+	transform: translateY(0);
+}
+.menu li {
+	list-style-type: none;
+}
+
+
+.title {
+    margin-top: 220px;
+    margin-bottom: 120px;
+    display: flex;
+    align-items: center;
+    @include text(40px, 700, white, 'Manrope');
+}
+
+@media (max-width: 440px) {
+    .title {
+        margin-bottom: 50px;
+        font-size: 25px;
+    }
+}
+
+.companies {
+    padding-top: 150px;
+    padding-bottom: 110px;
+    .logos {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+        img {
+            padding-right: 16px;
+            padding-bottom: 16px;
+        }
+        padding-bottom: 200px;
+    }
+    .scroll {
+        text-align: center;
+    }
+}
+
+@media (max-width: 767px) {
+    div.logo {
+        margin-left: 0;
+    }
+    div.call {
+        display: none;
+    }
+    nav.main-menu {
+        display: none;
+    }
+    .companies {
+        padding-top: 70px;
+        padding-bottom: 50px;
+        flex-basis: 100%;
+        max-width: 100%;
+        .logos {
+            padding-bottom: 70px;
+        }
+    }
+    .title {
+        flex-basis: 100%;
+        max-width: 100%;
+    }
+}
+@media (min-width: 768px) {
+    div.menu-btn {
+        display: none;
+    }
+}
+
+.main-block {
+    margin-top: 135px;
+}
+
+.main-title {
+    @include text(55px, bold, #24252C, 'Montserrat');
+}
+
+@media (max-width: 1140px) {
+    .main-title {
+        font-size: 40px;
+    }
+}
+
+.title-block-bg {
+    background-image: url('img/Vector_1.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 20px 0;
+}
+
+.title-block {
+    position: relative;
+    padding: 70px 40px;
+    margin: 80px 0;
+    background-color: white;
+    &::before {
+        content: '';
+        display: inline-block;
+        position: relative;
+        width: 0;
+        transform: scale(2);
+        top: 90px;
+        right: 65%;
+        z-index: -1;
+        box-shadow: -45px -46px 64px 45px rgba(255, 13, 13, 0.73);
+        border-radius: 50%;
+    }
+    &::after {
+        content: '';
+        display: inline-block;
+        position: relative;
+        width: 0;
+        transform: scale(2);
+        top: 90px;
+        right: -10%;
+        z-index: -1;
+        box-shadow: -45px -46px 64px 45px rgba(13, 180, 255, 0.73);
+        border-radius: 50%;
+    }
+}
+
+@media (max-width: 950px) {
+    .title-block {
+        margin: 100px 0;
+    }
+}
+
+.main-block-title {
+    @include text(24px, bold, #24252C, 'Montserrat');
+    padding: 15px;
+}
+.main-text {
+    @include text(18px, normal, #666666, 'Manrope');
+}
+
+.services {
+    margin-top: 150px;
+    .main-title {
+        margin-bottom: 66px;
+    }
+}
+.service-block, .promotion, .portfolio {
+    margin-bottom: 80px;
+    img {
+        width: 100%;
+        margin-top: 1rem;
+    }
+    .main-block-title {
+        font-size: 36px;
+        margin-bottom: 25px;
+    }
+}
+
+@media (max-width: 470px) {
+    .service-block {
+        .main-block-title {
+            font-size: 24px;
+        }
+    }
+}
+
+@for $i from 1 to 4 {
+    .hidden-#{$i} {
+        display: none;
+    }
+}
+
+@media (max-width: 991px) {
+    @for $i from 1 to 4 {
+        .hidden-#{$i} {
+            display: block;
+        }
+    }
+    @for $i from 1 to 4 {
+        .main-img-#{$i} {
+            display: none;
+        }
+    }
+}
+
+.shine {
+    position: relative;
+        &::after {
+            content: '';
+            display: inline-block;
+            position: relative;
+            transform: scale(2.5);
+            width: 0;
+            right: -50%;
+            z-index: -1;
+            box-shadow: -45px -46px 64px 45px rgba(13, 31, 255, 0.54);
+            border-radius: 100%;
+        }
+}
+
+.technology {
+    padding-right: 0;
+    .title-block {
+        padding: 20px 10px 0 10px;
+        word-wrap: break-word;
+        &:not(:last-of-type) {
+            margin-left: 10px;
+        }
+        min-height: 295px;
+    }
+    div.row {
+        padding-left: 0%;
+    }
+    .title-block::before {
+        content: '';
+        display: inline-block;
+        position: relative;
+        width: 0;
+        transform: scale(1);
+        top: 60px;
+        right: -70%;
+        z-index: -1;
+        box-shadow: -45px -46px 64px 45px rgba(255, 13, 13, 0.73);
+        border-radius: 50%;
+    }
+    .title-block::after {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        width: 0;
+        transform: scale(1);
+        top: 300px;
+        right: 30%;
+        z-index: -1;
+        box-shadow: -45px -46px 64px 45px rgba(13, 180, 255, 0.73);
+    }
+}
+
+.promotion {
+    .main-block-title {
+        margin-top: 60px;
+    }
+}
+
+  .portfolio {
+    font-family: 'Manrope', Arial, sans-serif;
+    counter-reset: slide;
+    .item {
+        position: relative;
+        counter-increment: slide;
+        img {
+            width: 80%;
+        }
+        .portfolio-img-2 {
+            display: inline-block;
+            position: relative;
+            width: 35%;
+            top: -20%;
+            left: 60%;
+        }
+    }
+  }
+  .next-previous-btn
+  {
+    .previous {
+        padding: 20px 30px;
+        background: url('img/arrow-left.svg') no-repeat center;
+        border: 1px solid #C4C4C4;
+        border-radius: 20%;
+        margin-right: 20px;
+        &:hover {
+            background-color: #C4C4C4;
+        }
+    }
+    .next {
+        padding: 20px 30px;
+        background: url('img/arrow-right.svg') no-repeat center;
+        background-color: rgba(237, 28, 36, 1);
+        border: 1px solid #C4C4C4;
+        border-radius: 20%;
+        &:hover {
+            opacity: 0.5;
+        }
+    }
+    position: relative;
+    max-width: 200px;
+    margin-top: 100px;
+}
+
+.reviews-title {
+    @include text(18px, bold, #24252C, 'Montserrat');
+    margin: 20px 0;
+}
+
+.reviews {
+    .title-block {
+        min-height: 400px;
+        &::before {
+            top: -20px;
+            right: -65%;
+            transform: scale(1.5);
+        }
+        &::after {
+            position: absolute;
+            top: 550px;
+            right: 35%;
+            transform: scale(1.5);
+        }
+    }
+    position: relative;
+    > img {
+        position: relative;
+        margin-top: -629px;
+        z-index: -1;
+        right: -55%;
+    }
+}
+
+.form-text, textarea, input {
+    @include text(18px, medium, #24252C, 'Manrope');
+}
+form {
+    margin: 40px 0;
+    line-height: 2;
+    input, textarea {
+        border: 1px solid #C4C4C4;
+        border-radius: 5%;
+        width: 80%;
+        padding: 20px;
+    }
+    input[type="submit"], input[type="checkbox"] {
+        width: auto;
+    }
+    input[type="submit"] {
+        @include text(18px, bold, white, 'Manrope');
+        background-color: #ED1C24;
+        &:hover {
+            opacity: 0.5;
+        }
+    }
+    textarea {
+        margin-top: 20px;
+    }
+}
+
+footer {
+    .main-title {
+        margin-bottom: 60px;
+    }
+    .footer-title {
+        @include text(16px, normal, #666666, 'Manrope');
+        margin-top: 20px;
+    }
+    .footer-text {
+        @include text(18px, medium, #24252C, 'Manrope');
+    }
+}
+
+.team-block {
+    margin: 20px 0;
+    img {
+        width: 100%;
+    }
+}
+
+.team-name {
+    @include text(18px, bold, #24252C, 'Montserrat');
+    margin-top: 10px
+}
+
+.team-work {
+    @include text(15px, normal, #666666, 'Manrope');
+    margin-top: 10px;
+}
+
+.team-text {
+    @include text(16px, bold, #24252C, 'Manrope');
+    margin-top: 20px;
+}
